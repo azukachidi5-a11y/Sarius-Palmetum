@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sarius Palmetum — Abuja's botanical sanctuary, gardens, dining and events." />
+  <title>Sarius Palmetum | Abuja Botanical Sanctuary</title>
+  <style>
+    :root{
+      --green:#123d2b;
+      --green2:#1d6547;
+      --cream:#f7f3e9;
+      --gold:#c99a3e;
+      --text:#183026;
+      --muted:#66756e;
+      --white:#fff;
+      --shadow:0 18px 50px rgba(15,43,31,.12);
+      --radius:24px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--cream);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1120px,92%);margin:auto}
+    header{
+      position:sticky;top:0;z-index:20;
+      background:rgba(247,243,233,.92);backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(18,61,43,.08)
+    }
+    nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px}
+    .brand-mark{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#fff;font-size:20px}
+    .nav-links{display:flex;gap:26px;color:#42544c;font-size:14px;font-weight:650}
+    .nav-links a:hover{color:var(--green2)}
+    .menu{display:none;border:0;background:none;font-size:25px}
+    .hero{padding:76px 0 70px;background:linear-gradient(135deg,#edf5ed 0%,#f7f3e9 52%,#e8f0e9 100%)}
+    .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:54px;align-items:center}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;color:var(--green2);font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:18px}
+    h1{font-size:clamp(44px,7vw,76px);line-height:.98;letter-spacing:-3px;color:var(--green);margin-bottom:24px}
+    .hero p{font-size:18px;color:var(--muted);max-width:610px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{padding:13px 20px;border-radius:999px;font-weight:800;border:1px solid transparent;display:inline-block}
+    .btn-primary{background:var(--green);color:#fff}
+    .btn-primary:hover{background:#0d2e20}
+    .btn-light{background:#fff;border-color:#d8e1da}
+    .hero-card{position:relative}
+    .hero-card img{width:100%;height:520px;object-fit:cover;border-radius:32px;box-shadow:var(--shadow)}
+    .floating{
+      position:absolute;left:-20px;bottom:22px;background:#fff;padding:16px 18px;border-radius:18px;
+      box-shadow:0 15px 35px rgba(0,0,0,.12);max-width:245px
+    }
+    .floating strong{display:block;color:var(--green);font-size:20px}
+    .floating span{font-size:13px;color:var(--muted)}
+    section{padding:86px 0}
+    .section-head{max-width:720px;margin-bottom:38px}
+    .section-head .kicker{color:var(--gold);font-weight:850;text-transform:uppercase;letter-spacing:1.5px;font-size:12px}
+    h2{font-size:clamp(32px,5vw,48px);line-height:1.05;color:var(--green);letter-spacing:-1.5px;margin:9px 0 12px}
+    .section-head p{color:var(--muted)}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:38px}
+    .stat{background:#fff;border:1px solid #e7e9e1;padding:24px;border-radius:20px}
+    .stat b{display:block;font-size:30px;color:var(--green)}
+    .stat span{font-size:13px;color:var(--muted)}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .feature{background:#fff;border-radius:var(--radius);padding:30px;border:1px solid #e5e8e0;box-shadow:0 8px 25px rgba(15,43,31,.04)}
+    .icon{width:48px;height:48px;border-radius:15px;background:#e8f1e9;display:grid;place-items:center;font-size:23px;margin-bottom:20px}
+    .feature h3{color:var(--green);margin-bottom:8px}
+    .feature p{color:var(--muted);font-size:15px}
+    .dining{background:var(--green);color:#fff}
+    .dining h2{color:#fff}.dining .section-head p{color:#c9d8cf}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:#fff;color:var(--text);border-radius:22px;padding:26px}
+    .tag{display:inline-block;font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:1px;color:var(--green2);background:#e9f3eb;padding:6px 9px;border-radius:999px;margin-bottom:15px}
+    .card h3{color:var(--green);font-size:23px;margin-bottom:7px}
+    .card p{color:var(--muted);font-size:14px;margin-bottom:14px}
+    .card a{font-weight:800;color:var(--green2);font-size:14px}
+    .visit{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:stretch}
+    .visit-panel{background:#fff;border:1px solid #e5e8e0;border-radius:28px;padding:34px}
+    .info{display:grid;gap:18px;margin-top:25px}
+    .info-row{display:flex;gap:13px;align-items:flex-start}
+    .info-row .mini{font-size:19px;width:25px}
+    .info-row strong{display:block;color:var(--green)}
+    .info-row span{font-size:14px;color:var(--muted)}
+    .price-box{margin-top:24px;padding:20px;background:#f1f6f0;border-radius:18px}
+    .price-box div{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #dbe6dc}
+    .price-box div:last-child{border-bottom:0}
+    footer{background:#0c2b1f;color:#d4e1d9;padding:40px 0}
+    .footer-grid{display:flex;justify-content:space-between;gap:25px;align-items:center}
+    footer small{color:#a9bdb2}
+    @media(max-width:820px){
+      .nav-links{display:none}.menu{display:block}
+      .hero-grid,.visit{grid-template-columns:1fr}
+      .hero{padding-top:45px}.hero-card img{height:420px}
+      .floating{left:12px}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .features,.cards{grid-template-columns:1fr}
+      section{padding:65px 0}
+    }
+    @media(max-width:480px){
+      h1{letter-spacing:-2px}.stats{grid-template-columns:1fr}
+      .hero-card img{height:330px}.floating{position:relative;left:0;bottom:auto;margin-top:-30px;margin-left:15px}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a class="brand" href="#top"><span class="brand-mark">🌴</span>Sarius Palmetum</a>
+      <div class="nav-links">
+        <a href="#about">About</a><a href="#dining">Dining</a><a href="#visit">Visit</a><a href="#contact">Contact</a>
+      </div>
+      <button class="menu" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')">☰</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">🌿 Abuja's botanical sanctuary</div>
+        <h1>Where nature meets serenity.</h1>
+        <p>Sarius Palmetum is a botanical garden and leisure destination in Maitama, Abuja, combining tropical palms, exotic flora, photography spaces, events and garden dining.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#visit">Plan your visit</a>
+          <a class="btn btn-light" href="#dining">Explore dining</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="assets/garden.jpg" alt="Garden walkway at Sarius Palmetum" />
+        <div class="floating"><strong>200+ plant species</strong><span>and 50+ palm varieties listed by the venue.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">About the garden</div>
+        <h2>A green escape in the heart of Abuja.</h2>
+        <p>The venue describes itself as a living botanical sanctuary with lush gardens, rare palms, streams, photography opportunities, event spaces and restaurants/cafés.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>200+</b><span>Plant species</span></div>
+        <div class="stat"><b>50+</b><span>Palm varieties</span></div>
+        <div class="stat"><b>9AM–6PM</b><span>Daily opening hours</span></div>
+        <div class="stat"><b>3</b><span>Dining spots listed on the official site</span></div>
+      </div>
+      <div class="features" style="margin-top:22px">
+        <article class="feature"><div class="icon">🌴</div><h3>Lush gardens</h3><p>Walk through tropical palms, exotic flowers and botanical collections in a calm outdoor setting.</p></article>
+        <article class="feature"><div class="icon">📸</div><h3>Photography</h3><p>Natural backdrops for personal and professional photography and videography.</p></article>
+        <article class="feature"><div class="icon">🎉</div><h3>Events</h3><p>A garden setting for weddings, parties, corporate gatherings and other memorable events.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="dining" class="dining">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Eat & drink</div>
+        <h2>Restaurants in paradise.</h2>
+        <p>The official Sarius Palmetum website currently lists three on-site dining options.</p>
+      </div>
+      <div class="cards">
+        <article class="card"><span class="tag">Restaurant</span><h3>The Panini Bar</h3><p>A garden café focused on paninis, sandwiches, burgers, salads, wings, smoothies, juices and mocktails.</p><a href="#visit">View visit details →</a></article>
+        <article class="card"><span class="tag">Restaurant</span><h3>Cilantro</h3><p>An Indian / Asian dining option located within Sarius Palmetum, with indoor and outdoor dining.</p><a href="#visit">View visit details →</a></article>
+        <article class="card"><span class="tag">Cafe</span><h3>Lantees Cafe</h3><p>A café inside the botanical garden offering a relaxed setting surrounded by greenery.</p><a href="#visit">View visit details →</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="container visit">
+      <div class="visit-panel">
+        <div class="section-head" style="margin-bottom:0">
+          <div class="kicker">Plan your visit</div>
+          <h2>Come experience the garden.</h2>
+          <p>For tickets, group bookings and events, contact Sarius Palmetum directly.</p>
+        </div>
+        <div class="info">
+          <div class="info-row"><div class="mini">📍</div><div><strong>Location</strong><span>Plot 3703–3704 Babangida Boulevard, Maitama, Abuja, Nigeria</span></div></div>
+          <div class="info-row"><div class="mini">🕘</div><div><strong>Opening hours</strong><span>Sunday–Saturday, 9:00 AM–6:00 PM</span></div></div>
+          <div class="info-row"><div class="mini">☎️</div><div><strong>Phone</strong><span>+234 (913) 714-2755</span></div></div>
+          <div class="info-row"><div class="mini">✉️</div><div><strong>Email</strong><span>info@sariuspalmetum.com</span></div></div>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="tel:+2349137142755">Call</a>
+          <a class="btn btn-light" href="https://sariuspalmetum.com/" target="_blank" rel="noopener">Official website</a>
+        </div>
+      </div>
+
+      <div class="visit-panel">
+        <div class="section-head" style="margin-bottom:0">
+          <div class="kicker">Published ticket information</div>
+          <h2>Entry & sessions.</h2>
+          <p>These figures are taken from the venue's current website and may change.</p>
+        </div>
+        <div class="price-box">
+          <div><span>Adults</span><strong>₦4,000</strong></div>
+          <div><span>Kids under 12</span><strong>₦2,000</strong></div>
+          <div><span>Photography session</span><strong>₦100,000</strong></div>
+        </div>
+        <p style="margin-top:18px;color:var(--muted);font-size:13px">Online booking is currently shown as temporarily unavailable on the official website. Contact the venue for tickets, groups and events.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="container footer-grid">
+    <div><strong>Sarius Palmetum</strong><br><small>Botanical sanctuary • Maitama, Abuja</small></div>
+    <small>Built as a GitHub Pages-ready single-page website.</small>
+  </div>
+</footer>
+
+<script>
+  const links = document.querySelectorAll('.nav-links a');
+  links.forEach(link => link.addEventListener('click', () => {
+    document.querySelector('.nav-links').classList.remove('mobile-open');
+  }));
+</script>
+<style>
+  @media(max-width:820px){
+    .nav-links.mobile-open{
+      display:flex;position:absolute;left:4%;right:4%;top:66px;
+      background:#fff;padding:18px;border-radius:16px;box-shadow:0 15px 40px rgba(0,0,0,.12);
+      flex-direction:column;gap:14px;
+    }
+  }
+</style>
+</body>
+</html>
